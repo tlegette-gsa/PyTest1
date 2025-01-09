@@ -9,6 +9,7 @@ from dataclasses import dataclass
 
 _DATABASE = "user.db"
 
+# test comment
 
 @dataclass
 class User:

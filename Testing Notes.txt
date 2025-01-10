@@ -1,0 +1,2 @@
+For the DO_SETUP option to create a new release based on branch, the repo name must match the application name in FoD but there are restrictions on Github repo names (no spaces, special characters etc). So our current hybrid app "GSA\ise-appsec" is not allowed.
+I will with try to set the repo name and allow releases to be created with DO_SETUP

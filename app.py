@@ -123,6 +123,8 @@ def create_user():  # put application's code here
 def login_user():
     username: str = request.form["username"]
     password: str = request.form["password"]
+    # Vulnerability: mishandling secrets, disclosing sensitive information
+    print(f"Logging in user: {username} password: {password}")
     try:
         user = get_authenticated_user(username, password)
         return {"id": user.id, "username": user.username}, 200

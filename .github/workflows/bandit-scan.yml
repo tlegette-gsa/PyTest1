@@ -1,0 +1,32 @@
+name: Bandit Static Scan
+
+# Customize trigger events based on your DevSecOps process and/or policy
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  workflow_dispatch:
+  
+permissions:
+  contents: read
+
+jobs:
+  bandit-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12.3
+        uses: actions/setup-python@v4
+        with:
+            python-version: "3.12.3"
+      - name: Install bandit
+        run: pip install bandit
+      - name: Run scan
+        run: bandit app.py -f sarif -o /tmp/results.sarif --confidence-level medium
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: /tmp/results.sarif

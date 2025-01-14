@@ -68,7 +68,8 @@ jobs:
           DO_SETUP: true
           ### Optional configuration when integrating with Fortify on Demand
           # PACKAGE_EXTRA_OPTS: -pyr ./requirements.txt - had no success with this
-          EXTRA_PACKAGE_OPTS: --debug
+          # PACKAGE_EXTRA_OPTS: -debug
+          # EXTRA_PACKAGE_OPTS: -debug
           
           # EXTRA_PACKAGE_OPTS: -oss                       # Extra 'scancentral package' options, like '-oss'' if
                                                            # Debricked SCA scan is enabled on Fortify on Demand

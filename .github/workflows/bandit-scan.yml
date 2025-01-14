@@ -22,7 +22,7 @@ jobs:
       - name: Install bandit
         run: pip install bandit[sarif]
       - name: Run scan
-        run: bandit app.py -f sarif -o /tmp/results.sarif --confidence-level medium || test -f /tmp/results.sarif
+        run: bandit app.py -f sarif -o /tmp/results.sarif || test -f /tmp/results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:

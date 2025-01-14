@@ -54,7 +54,8 @@ jobs:
       # details.
       - name: Run FoD SAST Scan
         # uses: fortify/github-action@a92347297e02391b857e7015792cd1926a4cd418
-        uses: fortify/github-action@v1.6.3
+        # uses: fortify/github-action@v1.6.3
+        uses: fortify/github-action/package@feat-package-debug
 
         with:
           sast-scan: true
@@ -66,6 +67,7 @@ jobs:
           FOD_USER: ${{secrets.FOD_USER}}
           FOD_PASSWORD: ${{secrets.FOD_PAT}}
           DO_SETUP: true
+          DO_PACKAGE_DEBUG: true
           ### Optional configuration when integrating with Fortify on Demand
           # PACKAGE_EXTRA_OPTS: -pyr ./requirements.txt - had no success with this
           # PACKAGE_EXTRA_OPTS: -debug
@@ -91,11 +93,11 @@ jobs:
           # DO_WAIT: true                                  # Wait for scan completion, implied if 'DO_EXPORT: true'
           # DO_EXPORT: true                                # Export SAST results to GitHub code scanning dashboard
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: scan_central_logs
-          path: /home/runner/.fortify/scancentral-24.4.0/log
-      - uses: actions/upload-artifact@v4
-        with:
-          name: package_file
-          path: package.zip
+    #  - uses: actions/upload-artifact@v4
+    #    with:
+    #      name: scan_central_logs
+    #      path: /home/runner/.fortify/scancentral-24.4.0/log
+    #  - uses: actions/upload-artifact@v4
+    #    with:
+    #      name: package_file
+    #      path: package.zip

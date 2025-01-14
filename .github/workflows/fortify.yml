@@ -68,7 +68,7 @@ jobs:
           DO_SETUP: true
           ### Optional configuration when integrating with Fortify on Demand
           # PACKAGE_EXTRA_OPTS: -pyr ./requirements.txt - had no success with this
-          EXTRA_PACKAGE_OPTS: -pyr ./requirments.txt
+          EXTRA_PACKAGE_OPTS: -debug
           
           # EXTRA_PACKAGE_OPTS: -oss                       # Extra 'scancentral package' options, like '-oss'' if
                                                            # Debricked SCA scan is enabled on Fortify on Demand
@@ -89,3 +89,8 @@ jobs:
           # EXTRA_PACKAGE_OPTS: -bv myCustomPom.xml        # Extra 'scancentral package' options
           # DO_WAIT: true                                  # Wait for scan completion, implied if 'DO_EXPORT: true'
           # DO_EXPORT: true                                # Export SAST results to GitHub code scanning dashboard
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scan_central_logs
+          path: /home/runner/.fortify/scancentral-24.4.0/log

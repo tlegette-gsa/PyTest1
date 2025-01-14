@@ -95,3 +95,7 @@ jobs:
         with:
           name: scan_central_logs
           path: /home/runner/.fortify/scancentral-24.4.0/log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package_file
+          path: package.zip

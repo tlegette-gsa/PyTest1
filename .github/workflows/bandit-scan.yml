@@ -28,3 +28,8 @@ jobs:
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: /tmp/results.sarif
+      - name: upload SARIF file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scan_central_logs
+          path: /tmp/results.sarif

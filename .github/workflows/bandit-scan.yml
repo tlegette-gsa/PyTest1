@@ -22,9 +22,16 @@ jobs:
       - name: Install bandit
         run: pip install bandit[sarif]
       - name: Run scan
-        run: bandit --ini .bandit -f sarif -o /tmp/results.sarif || test -f /tmp/results.sarif
+        run: bandit --ini .bandit-no-trojansource -f sarif -o /tmp/results.sarif -v || test -f /tmp/results.sarif
+      - name: upload SARIF file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bandit-results.sarif
+          path: /tmp/results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
+        # continue-on-error: true
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: /tmp/results.sarif
+

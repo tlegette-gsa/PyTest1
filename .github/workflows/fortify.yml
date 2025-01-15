@@ -55,7 +55,7 @@ jobs:
       - name: Run FoD SAST Scan
         # uses: fortify/github-action@a92347297e02391b857e7015792cd1926a4cd418
         # uses: fortify/github-action@v1.6.3
-        uses: fortify/github-action/package@feat-package-debug
+        uses: fortify/github-action@1.6.4
 
         with:
           sast-scan: true

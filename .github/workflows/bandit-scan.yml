@@ -26,7 +26,7 @@ jobs:
       - name: upload SARIF file as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: scan_central_logs
+          name: bandit-results.sarif
           path: /tmp/results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3

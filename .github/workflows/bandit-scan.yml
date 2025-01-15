@@ -15,14 +15,14 @@ jobs:
     permissions: write-all
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 3.12.3
+      - name: Set up Python 3.13.3
         uses: actions/setup-python@v4
         with:
-            python-version: "3.12.3"
+            python-version: "3.13.3"
       - name: Install bandit
         run: pip install bandit[sarif]
       - name: Run scan
-        run: bandit --ini .bandit -f sarif -o /tmp/results.sarif || test -f /tmp/results.sarif
+        run: bandit --ini .bandit2 -f sarif -o /tmp/results.sarif -v || test -f /tmp/results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:

@@ -67,7 +67,7 @@ jobs:
           FOD_USER: ${{secrets.FOD_USER}}
           FOD_PASSWORD: ${{secrets.FOD_PAT}}
           DO_SETUP: true
-          # SETUP_EXTRA_OPTS: --assessment-type "Static+"
+          SETUP_EXTRA_OPTS: --assessment-type "Static+"
           # DO_PACKAGE_DEBUG: true
           ### Optional configuration when integrating with Fortify on Demand
           # PACKAGE_EXTRA_OPTS: -pyr ./requirements.txt - had no success with this
